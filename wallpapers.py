@@ -13,13 +13,13 @@ print('Downloading, please wait')
 
 options = webdriver.FirefoxOptions()
 options.headless = True
-options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
-driverService=Service(r'C:\Users\acer\AppData\Local\Programs\Python\Python39\geckodriver.exe')
+options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe' #Change as per the location of your browser
+driverService=Service(r'C:\Users\acer\AppData\Local\Programs\Python\Python39\geckodriver.exe') #location of geckodriver on your device
 driver=webdriver.Firefox(service=driverService, options=options)
 driver.get('https://wallpapers.com')
 
 
-os.makedirs(titl+' wallpapers', exist_ok=True)
+os.makedirs(titl+' wallpapers', exist_ok=True) #
 
 searchit=driver.find_elements(By.CLASS_NAME, 'input-group')[0].find_elements(By.ID, 'big-search')
 searchit[0].send_keys(titl)
